@@ -1,0 +1,53 @@
+import time,math,winsound 
+from playsound import playsound
+
+r=input('闹钟、番茄钟或是计时器？')
+
+
+while(r=='番茄钟'):
+    i=0
+    while (i!=2):
+        playsound('start working.wav')
+
+        time.sleep(1)
+
+        playsound('stop working.wav')
+
+        time.sleep(1)
+        
+        i=i+1
+
+    playsound('start working.wav')
+
+    time.sleep(1500)
+
+    playsound('stop working.wav')
+
+    time.sleep(600)
+
+while(r=='闹钟'):
+    my_hour = input("请输入时：")
+    my_minute = input("请输入分：")
+
+    flag = 1
+    while flag:
+        t = time.localtime()
+        fmt = "%H %M"
+        now = time.strftime(fmt, t) 
+        now = now.split(' ') 
+
+        hour = now[0]
+        minute = now[1]
+        if hour == my_hour and minute == my_minute:
+            winsound.Beep(700,1000)
+            flag = 0
+
+while(r=='计时器'):
+    global time_end
+    time_start = time.time()
+    i=input('结束就按空格')
+    time_end = time.time()    
+    print('total cost=',time_end - time_start)
+    while(i==' '):
+        break
+    break
